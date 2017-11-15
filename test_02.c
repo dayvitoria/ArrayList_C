@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "array_list_int.h"
 
-/*TESTE DE BUSCA*/
 
 int main(){
   array_list_int a1 = ali_create();
@@ -15,10 +14,15 @@ int main(){
   for (i=0; i < tamanho ; ++i)
     printf("%d ", ali_get(a1,i));
   printf("}\n");
-  printf("Digite um item para busca:\n");
-  scanf("%d", &elemento);
-  n = ali_find(a1,elemento);
-  printf("o elemento %d se encontra no indice : %d \n",elemento,n);
+  printf("Digite o novo valor para ser inserido: \n");
+  scanf("%d", &valor);
+  printf("Digite o indice no qual deseja incluir o valor: \n");
+  scanf("%d", &indice);
+  ali_insert_at(a1,indice,valor);
+  printf("a1 = { ");
+  for (i=0; i < tamanho ; ++i)
+    printf("%d ", ali_get(a1,i));
+  printf("}\n");
   porcentagem = ali_percent_occuped(a1);
   printf("Porcentagem ocupada em a1 : %f \n",porcentagem);
   capacidade = ali_capacity(a1);

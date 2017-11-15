@@ -112,7 +112,7 @@ int ali_find(array_list_int ali, int element){
       }
 
   }
-return elementIndex;;
+return elementIndex;
 }
 
 /**
@@ -142,14 +142,15 @@ int ali_insert_at(array_list_int ali, int index, int value){
  * TODO:
  */
 int ali_remove_from(array_list_int ali, int index){
-  return ali->size;
-  if (!ali_check_type(ali) || index < 0 || index >= ali->size)
-    return -1;
   int i;
-  for (i = index+1; i < ali->size; i++)
-    ali->a[i-1] = ali->a[i];
+  if(!ali_check_type(ali) || index < 0 || index > (ali -> size))
+      return 0;
+    for(i = index+1; i < (ali -> size);i++){
+        if(i < (ali -> size))
+        ali -> a[i-1] = ali -> a[i];
 
-  return --ali->size;
+    }
+return --(ali->size);
 
 
 }
